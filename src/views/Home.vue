@@ -11,7 +11,7 @@
 export default {
   data: function () {
     return {
-      message: "naniel app (beta)",
+      message: "Welcome Home, friend.",
     };
   },
   created: function () {},
