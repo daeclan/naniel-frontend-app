@@ -1,17 +1,25 @@
 <template>
-  <div class="login">
+  <div class="signup">
     <form v-on:submit.prevent="submit()">
-      <h1>Login</h1>
+      <h1>Sign Up</h1>
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
       <div class="form-group">
-        <label>User Name:</label>
+        <label>User Name:</label> 
         <input type="text" class="form-control" v-model="user_name">
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
       </div>
       <div class="form-group">
         <label>Password:</label>
         <input type="password" class="form-control" v-model="password">
+      </div>
+      <div class="form-group">
+        <label>Password confirmation:</label>
+        <input type="password" class="form-control" v-model="passwordConfirmation">
       </div>
       <input type="submit" class="btn btn-primary" value="Submit">
     </form>
@@ -25,7 +33,9 @@ export default {
   data: function () {
     return {
       user_name: "",
+      email: "",
       password: "",
+      passwordConfirmation: "",
       errors: [],
     };
   },
@@ -33,22 +43,17 @@ export default {
     submit: function () {
       var params = {
         user_name: this.user_name,
+        email: this.email,
         password: this.password,
+        password_confirmation: this.passwordConfirmation,
       };
       axios
-        .post("/api/sessions", params)
+        .post("/api/users", params)
         .then((response) => {
-          axios.defaults.headers.common["Authorization"] =
-            "Bearer " + response.data.jwt;
-          localStorage.setItem("jwt", response.data.jwt);
-          localStorage.setItem("user_id", response.data.user_id);
-          this.$router.push("/");
-          console.log(response.data.jwt);
+          this.$router.push("/login");
         })
         .catch((error) => {
-          this.errors = ["Invalid user_name or password."];
-          this.user_name = "";
-          this.password = "";
+          this.errors = error.response.data.errors;
         });
     },
   },
