@@ -1,5 +1,6 @@
 <template>
   <div class="logout">
+    "You have successfully logged out."
   </div>
 </template>
 

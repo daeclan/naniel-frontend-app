@@ -20,7 +20,7 @@
       Price: {{product.price}}
       <br>
       <br>
-      <i>{{product.image_url}} </i>
+      <img v-bind:src="product.image_url" width="400px">
       <p>∞</p>
       </div>
   

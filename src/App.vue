@@ -3,12 +3,106 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/posts">Index</router-link> |
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/logout">Log Out</router-link> |
+      <span v-if="isLoggedIn()"><router-link to="/posts/new">Create Post</router-link> | </span>
       <router-link to="/about">About</router-link> |
-      <router-link to="/signup">Sign Up</router-link> 
+      <span v-if="!isLoggedIn()"><router-link to="/signup">Signup</router-link>  </span>
+      <span v-if="!isLoggedIn()"> | <router-link to="/login">Login</router-link> </span>
+      <span v-if="isLoggedIn()"> <router-link to="/logout"> Logout</router-link></span>
     </div>
     <router-view/>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
+    <body>
+      With You Soon
+    </body>
   </div>
 </template>
 
@@ -19,6 +113,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background: url(https://s3.amazonaws.com/noupe/2009/10/squidfingers.jpg);
 }
 
 #nav {
@@ -31,6 +126,25 @@
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #b7df27;
 }
 </style>
+
+<script>
+export default {
+  methods: {
+    isLoggedIn: function () {
+      console.log("I Am Logged In");
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+
+    getUserId: function () {
+      return localStorage.getItem("user_id");
+    },
+  },
+};
+</script>
