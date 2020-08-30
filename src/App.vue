@@ -2,8 +2,9 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/posts">Index</router-link> |
-      <span v-if="isLoggedIn()"><router-link to="/posts/new">Create Post</router-link> | </span>
+      <router-link to="/products">Index</router-link> |
+      <span v-if="isLoggedIn()"><router-link to="/products/new">Sell A Product</router-link> | </span>
+      <!-- <span v-if="isLoggedIn()"> <router-link to="/products/:id/edit"> Edit Product</router-link> | </span> -->
       <router-link to="/about">About</router-link> |
       <span v-if="!isLoggedIn()"><router-link to="/signup">Signup</router-link>  </span>
       <span v-if="!isLoggedIn()"> | <router-link to="/login">Login</router-link> </span>

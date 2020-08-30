@@ -3,9 +3,11 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import ProductsIndex from '../views/ProductsIndex.vue'
 import ProductsCreate from '../views/ProductsCreate.vue'
+import ProductShow from '../views/ProductShow.vue'
 import Login from '../views/Login.vue'
 import LogOut from '../views/LogOut.vue'
 import SignUp from '../views/Signup.vue'
+import ProductEdit from '../views/ProductEdit.vue'
 
 Vue.use(VueRouter)
 
@@ -24,7 +26,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/posts',
+    path: '/products',
     name: 'ProductsIndex',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -32,12 +34,20 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/ProductsIndex.vue')
   },
   {
-    path: '/posts/new',
+    path: '/products/new',
     name: 'ProductsCreate',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/ProductsCreate.vue')
+  },
+  {
+    path: '/products/:id',
+    name: 'ProductShow',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/ProductShow.vue')
   },
   {
     path: '/login',
@@ -62,6 +72,14 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Signup.vue')
+  },
+  {
+    path: '/products/:id/edit',
+    name: 'ProductEdit',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/ProductEdit.vue')
   },
 
 ]

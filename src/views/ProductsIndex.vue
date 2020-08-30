@@ -15,9 +15,10 @@
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div> -->
-  
       <br>
-      Price: {{product.price}}
+      <b>Description</b> {{product.description}}
+      <br>
+      <b>Price</b> ${{product.price}}.00
       <br>
       <br>
       <img v-bind:src="product.image_url" width="400px">
