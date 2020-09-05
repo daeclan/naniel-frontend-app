@@ -1,7 +1,7 @@
 <template>
   <div class="products-create">
     <img v-if="status" v-bind:src="`https://http.cat/${status}`">
-    <h1>{{ message }}</h1>Product
+    <h1>{{ message }}</h1>
 
       <div class="form-group">
         <label>Name:</label>
@@ -24,7 +24,12 @@
       Price:<input v-model="price" type:text>  </input>
       <br>
       <br>
+      Quantity:<input v-model="qty" type:text>  </input>
+      <br>
+      <br>
       Cause ID:<input v-model="cause_id" type:text>  </input>
+      <br>
+      <br>
       <button v-on:click="createProduct()">Create</button>
         <br>
         <br>
@@ -50,6 +55,7 @@ export default {
       products: [],
       price: "",
       name: "",
+      qty: "",
       description: "",
       image_url: "",
       cause_id: "",
@@ -67,6 +73,7 @@ export default {
         description: this.description,
         image_url: this.image_url,
         price: this.price,
+        qty: this.qty,
         cause_id: this.cause_id,
         user_id: this.user_id,
       };
@@ -76,6 +83,7 @@ export default {
         .then((response) => {
           console.log(response).data;
           this.products.push(response.data);
+          this.$router.push("/products");
         })
         .catch((error) => {
           console.log((error.response || {}).data);

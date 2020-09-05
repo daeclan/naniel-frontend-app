@@ -2,7 +2,7 @@
   <div class="products-edit">
     <!-- <form v-on.submit.prevent="editProduct()"> -->
     <h1>{{ message }}</h1>
-    <h3> {{product}} </h3>
+    <h3> {{this.product}} </h3>
    
 
     <div class="form group">
@@ -15,11 +15,15 @@
     </div> 
     <div class="form group">
       <label> Image </label>
-      <input type="text" class="form-control" v-model="product.image">
+      <input type="text" class="form-control" v-model="product.image_url">
     </div> 
     <div class="form group">
       <label> Price </label>
       <input type="text" class="form-control" v-model="product.price">
+    </div> 
+    <div class="form group">
+      <label> Quantity </label>
+      <input type="text" class="form-control" v-model="product.qty">
     </div> 
     <div class="form group">
       <label> Cause ID </label>
@@ -58,6 +62,8 @@ export default {
         name: this.product.name,
         description: this.product.description,
         price: this.product.price,
+        qty: this.product.qty,
+        image_url: this.product.image_url,
         cause_id: this.product.cause_id,
       };
 

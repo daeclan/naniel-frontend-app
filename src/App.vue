@@ -2,8 +2,10 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
+      <router-link to="/users">Users</router-link> |
       <router-link to="/products">Index</router-link> |
       <span v-if="isLoggedIn()"><router-link to="/products/new">Sell A Product</router-link> | </span>
+      <span v-if="isLoggedIn()"><router-link to="/carted_products/">Your Cart</router-link> | </span>
       <!-- <span v-if="isLoggedIn()"> <router-link to="/products/:id/edit"> Edit Product</router-link> | </span> -->
       <router-link to="/about">About</router-link> |
       <span v-if="!isLoggedIn()"><router-link to="/signup">Signup</router-link>  </span>
@@ -11,7 +13,7 @@
       <span v-if="isLoggedIn()"> <router-link to="/logout"> Logout</router-link></span>
     </div>
     <router-view/>
-    <body>
+    <!-- <body>
       With You Soon
     </body>
     <body>
@@ -103,7 +105,7 @@
     </body>
     <body>
       With You Soon
-    </body>
+    </body> -->
   </div>
 </template>
 
@@ -135,7 +137,6 @@
 export default {
   methods: {
     isLoggedIn: function () {
-      console.log("I Am Logged In");
       if (localStorage.getItem("jwt")) {
         return true;
       } else {

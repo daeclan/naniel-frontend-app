@@ -14,6 +14,10 @@
         <input type="email" class="form-control" v-model="email">
       </div>
       <div class="form-group">
+        <label>About Me:</label>
+        <input type="text" class="form-control" v-model="about_me">
+      </div>
+      <div class="form-group">
         <label>Password:</label>
         <input type="password" class="form-control" v-model="password">
       </div>
@@ -35,6 +39,7 @@ export default {
       user_name: "",
       email: "",
       password: "",
+      about_me: "",
       passwordConfirmation: "",
       errors: [],
     };
@@ -44,6 +49,7 @@ export default {
       var params = {
         user_name: this.user_name,
         email: this.email,
+        about_me: this.about_me,
         password: this.password,
         password_confirmation: this.passwordConfirmation,
       };

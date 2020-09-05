@@ -3,7 +3,7 @@
     <h1>{{ message }}</h1>
     <div v-for="product in products">
 
-      <br>
+      <br> {{product}}
       <br>
       <b><a v-bind:href="`/products/${product.id}`">{{product.name}}</a></b>
       <br>
@@ -18,7 +18,11 @@
       <br>
       <b>Description</b> {{product.description}}
       <br>
+      <br>
       <b>Price</b> ${{product.price}}.00
+      <br>
+      <br>
+      <b>Cause ID</b> {{product.cause_id}}
       <br>
       <br>
       <img v-bind:src="product.image_url" width="400px">
@@ -39,7 +43,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "products de naniel",
+      message: "Products For Sale",
       products: [],
     };
   },

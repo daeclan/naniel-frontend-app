@@ -2,17 +2,29 @@
   <div class="product-show">
     <h1>{{ message }}</h1>
       <br>
+      <!-- {{product}} -->
       <br>
-      <b>{{product.name}}</b>
+      <h2>{{product.name}}</h2>
       <br>
+      <br>
+      <i>Description:</i> 
       <br>
       {{product.description}}
       <br>
       <br>
+      Price:
+      ${{product.price}}.00
+      <br>
+      <br>
       <img v-bind:src="product.image_url" width="400px">
       <br>
-      <p>product.user_id = {{product.user_id}}
-      <p>current user's id = {{ $parent.getUserId()}}
+      <br>
+      <button v-on:click="buyProduct()"> Add Product To Cart </button>
+      <br>
+      <br>
+      Quantity Available: {{product.qty}}
+      <!-- <p>product.user_id = {{product.user_id}}
+      <p>current user's id = {{ $parent.getUserId()}} -->
       <br>
         <span v-if="product.user_id == $parent.getUserId()">
           <br>
@@ -35,7 +47,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "Showing One Product!",
+      message: "Buy This Product & Support A Friend",
       // user_id: current_user.id,
       product: [],
     };
@@ -58,6 +70,25 @@ export default {
         console.log(response.data);
         this.$router.push("/products");
       });
+    },
+    buyProduct: function () {
+      var params = {
+        product_id: this.product.id,
+        qty: this.product.qty,
+      };
+      console.log(this.product.product_id);
+      axios
+        .post("api/carted_products/", params)
+        .then((response) => {
+          console.log(response.data);
+          this.carted_product.push(response.data);
+          this.$router.push("/carted_products");
+        })
+        .catch((error) => {
+          this.errors = ["Invalid email or password."];
+          this.email = "";
+          this.password = "";
+        });
     },
   },
 };
