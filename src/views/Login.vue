@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="login text-center">
     <form v-on:submit.prevent="submit()">
       <h1>Login</h1>
       <ul>
@@ -42,7 +42,7 @@ export default {
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
           localStorage.setItem("user_id", response.data.user_id);
-          this.$router.push("/products");
+          this.$router.push("/");
           console.log(response.data.jwt);
         })
         .catch((error) => {

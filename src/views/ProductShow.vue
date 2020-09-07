@@ -1,10 +1,13 @@
 <template>
-  <div class="product-show">
+  <div class="product-show text-center">
+    
     <h1>{{ message }}</h1>
       <br>
       <!-- {{product}} -->
       <br>
       <h2>{{product.name}}</h2>
+      <br>
+      Cause You Are Supporting: {{product.cause.name}}
       <br>
       <br>
       <i>Description:</i> 

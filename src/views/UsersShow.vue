@@ -1,27 +1,31 @@
 <template>
-  <div class="user-show">
+  <div class="user-show text-center">
     <h1>{{ message }}</h1>
       <br>
       <br>
-      <b>{{user.user_name}}</b>
+      <h1>{{user.user_name}}</h1>
+      <br>
+      {{selectedFile}}
+      <br>
+      <b>About Me:</b> {{user.about_me}}
       <br>
       <br>
-      {{user.about_me}}
+      <b>Primary Cause:</b> {{user.primary_cause}}
       <br>
       <br>
+      <b> My Non Functioning Image Uploader! </b>
       <br>
- 
+      <br>
+      <input type="file" change="onFileChanged">
+      <br>
+      <br>
+      <button @click="onUpload">Upload!</button>
+      <br>
       <br>
       (eventually have an image here)
       <br>
       <br>
       <br>
-        <span v-if="user.user_id == $parent.getUserId()">
-          <br>
-          <a v-bind:href="`/products/${user.id}/edit`">Edit This Product</a>
-          <br>
-          <button v-on:click="deleteProduct()"> Delete This Product </button>
-        </span>
       <p>∞</p>
       </div
   
@@ -38,8 +42,9 @@ export default {
   data: function () {
     return {
       message: "User Profile:",
-      // user_id: current_user.id,
       user: [],
+      change: "",
+      selectedFile: null,
     };
   },
   created: function () {
@@ -53,6 +58,12 @@ export default {
         console.log(response.data);
         this.user = response.data;
       });
+    },
+    onFileChanged(event) {
+      const file = event.target.files[0];
+    },
+    onUpload() {
+      axios.post(`/api/users/${this.$route.params.id}`, this.selectedFile);
     },
   },
 };

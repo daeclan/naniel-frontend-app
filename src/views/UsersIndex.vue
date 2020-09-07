@@ -1,5 +1,8 @@
 <template>
-  <div class="users-index">
+  <div class="users-index text-center">
+    <br>
+    <br>
+    <br>
     <h1>{{ message }}</h1>
     <div v-for="user in users">
 
@@ -15,7 +18,7 @@
       <b>Profile</b> {{user.about_me}}
       <br>
       <br>
-      <b>Cause ID</b> {{user.cause_id}}
+      <b>Cause Name:</b> {{user.primary_cause}}
       <br>
       <br>
       <img v-bind:src="user.image_url" width="400px">

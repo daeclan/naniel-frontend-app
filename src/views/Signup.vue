@@ -1,5 +1,5 @@
 <template>
-  <div class="signup">
+  <div class="signup text-center">
     <form v-on:submit.prevent="submit()">
       <h1>Sign Up</h1>
       <ul>
@@ -16,6 +16,14 @@
       <div class="form-group">
         <label>About Me:</label>
         <input type="text" class="form-control" v-model="about_me">
+      </div>
+      <div class="form-group">
+        <label>Profile Picture:</label>
+        <input type="text" class="form-control" v-model="image_url">
+      </div>
+      <div class="form-group">
+        <label>Primary Cause:</label>
+        <input type="text" class="form-control" v-model="primary_cause">
       </div>
       <div class="form-group">
         <label>Password:</label>
@@ -50,6 +58,8 @@ export default {
         user_name: this.user_name,
         email: this.email,
         about_me: this.about_me,
+        image_url: this.image_url,
+        primary_cause: this.primary_cause,
         password: this.password,
         password_confirmation: this.passwordConfirmation,
       };

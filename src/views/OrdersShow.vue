@@ -1,7 +1,7 @@
 <template>
-  <div class="order-show">
+  <div class="order-show text-center">
     <h1>{{ message }}</h1>
-    
+<!--     
     <h1>{{ carted_products.products[0] }}</h1>
     <div v-for="carted_product in carted_products">
       <br>
@@ -9,20 +9,20 @@
       <br>
       <!-- {{ carted_products.products[counter].name}}  -->
       <!-- <h1 v-if="counter < carted_products.products.length">{{this.counter = this.counter+1}}</h1> -->
-    </div>
+    <!-- </div> --> 
       <br>
       <br>
-      <b><a v-bind:href="`/orders/${order.id}`">Order</a></b>
+      <b><a v-bind:href="`/orders/${order.id}`">Order #{{order.id}}</a></b>
       <br>
       {{order.product}}
       <br>
       <b>User ID</b> {{order.user_id}}
       <br>
-      <b>Subtotal:</b> {{order.subtotal}}
+      <b>Subtotal:</b> ${{order.subtotal}}
       <br>
-       <b>Tax</b> {{order.tax}}
+       <b>Tax</b> ${{order.tax}}
       <br>
-      <b>Total</b> {{order.total}}
+      <b>Total</b> ${{order.total}}
       <br>
      
       <br>
@@ -41,7 +41,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "confirm your order",
+      message: "order confirmed",
       order: [],
       carted_products: [],
       counter: 0,

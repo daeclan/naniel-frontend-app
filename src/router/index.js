@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import CartedProductsIndex from '../views/CartedProductsIndex.vue'
+import CausesIndex from '../views/CausesIndex.vue'
+import CausesShow from '../views/CausesShow.vue'
+import CausesCreate from '../views/CausesCreate.vue'
 import OrdersIndex from '../views/OrdersIndex.vue'
 import OrdersShow from '../views/OrdersShow.vue'
 import UsersIndex from '../views/UsersIndex.vue'
@@ -19,6 +22,11 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home
   },
@@ -125,6 +133,30 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/UsersShow.vue')
+  },
+  {
+    path: '/causes/',
+    name: 'CausesIndex',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/CausesIndex.vue')
+  },
+  {
+    path: '/causes/new/',
+    name: 'CausesCreate',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/CausesCreate.vue')
+  },
+  {
+    path: '/causes/:id',
+    name: 'CausesShow',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/CausesShow.vue')
   },
 
 ]
