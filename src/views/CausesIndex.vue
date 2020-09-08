@@ -1,10 +1,10 @@
 <template>
-  <div class="causes-index text-center" :style="myStyle" id="wrapper">
+  <div class="causes-index text-center col-xl-8 mx-auto" :style="myStyle" id="wrapper">
      <br>
      <br>
     <h1>{{ message }}</h1>
     <label>WHO IS YOUR NANIEL?</label>
-    <div v-for="cause in causes">
+    <div v-for="cause in orderBy(causes, 'id')">
 
       <!-- <br>{{cause.user}} -->
       <br>
@@ -44,7 +44,7 @@
 
 <script>
 import axios from "axios";
-
+import Vue2Filters from "vue2-filters";
 export default {
   data: function () {
     return {
@@ -67,5 +67,6 @@ export default {
       });
     },
   },
+  mixins: [Vue2Filters.mixin],
 };
 </script>

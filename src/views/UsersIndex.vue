@@ -1,14 +1,10 @@
 <template>
-  <div class="users-index text-center" :style ="myStyle" id="wrapper">
+  <div class="users-index text-center col-xl-8 mx-auto" :style ="myStyle" id="wrapper">
     <br>
     <br>
     <br>
     <h1>{{ message }}</h1>
-    <div v-for="user in users">
-
-      <br>
-
-      {{user}}
+    <div v-for="user in orderBy(users, 'id')">
       <br>
       <br>
       <b>User #{{user.id}} </b> 
@@ -20,7 +16,7 @@
       <b>Profile</b> {{user.about_me}}
       <br>
       <br>
-      <b>Primary Cause:</b> {{user.primary_cause}}
+      <b>Primary</b> {{user.primary_cause}}
       <br>
       <br>
       <img v-bind:src="user.image_url" width="400px">
@@ -38,6 +34,7 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
 export default {
   data: function () {
     return {
@@ -67,5 +64,6 @@ export default {
       });
     },
   },
+  mixins: [Vue2Filters.mixin],
 };
 </script>
