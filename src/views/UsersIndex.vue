@@ -13,10 +13,10 @@
 
       <br>
       <br>
-      <b>Profile</b> {{user.about_me}}
+      <b>Profile:</b> {{user.about_me}}
       <br>
       <br>
-      <b>Primary</b> {{user.primary_cause}}
+      <b>Primary Cause:</b> {{user.primary_cause}}
       <br>
       <br>
       <img v-bind:src="user.image_url" width="400px">

@@ -64,7 +64,10 @@ export default {
       });
     },
     apiLink: function () {
-      console.log("Hi!");
+      // console.log("Bye!");
+      axios.get("/api/users").then((response) => {
+        this.$router.push("/2001.html");
+      });
     },
     incrementCounter: function (index) {
       this.counter = ++this.counter;
