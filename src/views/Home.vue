@@ -31,7 +31,21 @@
               <span class="section-heading-upper">sell a product</span>
               <span class="section-heading-lower">Help a Friend</span>
             </h2>
-            <p class="mb-0">If CoronaVirus has shown us anything, it is that we have taken a lot of our creature comforts for granted. Many of us have collected some cool material over the years, the Naniel App allows you to trade one of those cool things in order to provide a creature comfort for someone in need.</p>
+            <p class="mb-0">If CoronaVirus has shown us anything, it is that we have taken a lot of our creature comforts for granted. Many of us have collected some cool material over the years, the Naniel App allows you to trade one of those cool things in order to provide a creature comfort for someone in need.</p> 
+            <br>
+            <p class="mb-0">Humor has been a huge part of my relationship with Naniel,so I installed a Dad Joke button below for when times are tough & you need something to smile about.</p> 
+            <br>
+      <button type = "button" id = "get-joke" class = "intro-button mx-auto btn btn-primary " @click = "fetchAPIData">Dad Joke API !</button>
+      <br>
+        <div v-if = "responseAvailable == true">
+          <br>
+          <br>
+          <h1>{{result}}</h1>
+          <br>
+          <h2>{{rasult}}</h2>
+        </div>
+            </p>
+            <hr>
           </div>
         </div>
       </div>
@@ -48,12 +62,45 @@ export default {
   data: function () {
     return {
       message: "Welcome Home, friend.",
+      result: "",
+      rasult: "",
+      responseAvailable: false,
+      apiKey: "17315ea7aemsh7584cfa32319fecp1db9cbjsn3aea7b8035c2",
       myStyle: {
         backgroundColor: "#d5eda1",
       },
     };
   },
   created: function () {},
-  methods: {},
+  methods: {
+    fetchAPIData() {
+      this.responseAvailable = false;
+      fetch("https://dad-jokes.p.rapidapi.com/random/jokes", {
+        method: "GET",
+        headers: {
+          "x-rapidapi-host": "dad-jokes.p.rapidapi.com",
+          "x-rapidapi-key": this.apiKey,
+          useQueryString: true,
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            alert(
+              "Server returned " + response.status + " : " + response.statusText
+            );
+          }
+        })
+        .then((response) => {
+          this.result = response.setup;
+          this.rasult = response.punchline;
+          this.responseAvailable = true;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
 };
 </script>

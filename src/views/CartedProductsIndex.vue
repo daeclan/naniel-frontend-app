@@ -4,7 +4,7 @@
     <!-- {{carted_products}} -->
     <div v-for="carted_product in carted_products">
       <br>
-      <h2>PASS THIS PEA: "{{carted_product.id}}"</h2>
+      <!-- <h2>PASS THIS PEA: "{{carted_product.id}}"</h2> -->
       <br>
       <b>  {{carted_product.product.name}} </b>
       <br>
