@@ -1,33 +1,33 @@
 <template>
-  <div class="products-edit">
+  <div class="products-edit text-center" :style ="myStyle" id="wrapper">
     <!-- <form v-on.submit.prevent="editProduct()"> -->
     <h1>{{ message }}</h1>
     <h3> {{this.product}} </h3>
    
 
-    <div class="form group">
+    <div class="form group text-center">
       <label> Name </label>
-      <input type="text" class="form-control" v-model="product.name">
+      <input type="text" class="form-control text-center" v-model="product.name">
     </div> 
-    <div class="form group">
+    <div class="form group text-center">
       <label> Description </label>
-      <input type="text" class="form-control" v-model="product.description">
+      <input type="text" class="form-control text-center" v-model="product.description">
     </div> 
-    <div class="form group">
+    <div class="form group text-center">
       <label> Image </label>
-      <input type="text" class="form-control" v-model="product.image_url">
+      <input type="text" class="form-control text-center" v-model="product.image_url">
     </div> 
-    <div class="form group">
+    <div class="form group text-center">
       <label> Price </label>
-      <input type="text" class="form-control" v-model="product.price">
+      <input type="text" class="form-control text-center" v-model="product.price">
     </div> 
-    <div class="form group">
+    <div class="form group text-center">
       <label> Quantity </label>
-      <input type="text" class="form-control" v-model="product.qty">
+      <input type="text" class="form-control text-center" v-model="product.qty">
     </div> 
-    <div class="form group">
+    <div class="form group text-center">
       <label> Cause ID </label>
-      <input type="text" class="form-control" v-model="product.cause_id">
+      <input type="text" class="form-control text-center" v-model="product.cause_id">
     </div> 
 
        <button v-on:click="editProduct()"> Submit </button>
@@ -54,6 +54,9 @@ export default {
       message: "Edit A Product!",
       product: {},
       errors: [],
+      myStyle: {
+        backgroundColor: "#d5eda6",
+      },
     };
   },
   methods: {

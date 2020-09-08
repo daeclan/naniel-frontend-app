@@ -1,26 +1,33 @@
 <template>
-  <div class="causes-index text-center"r>
+  <div class="causes-index text-center" :style="myStyle" id="wrapper">
+     <br>
+     <br>
     <h1>{{ message }}</h1>
+    <label>WHO IS YOUR NANIEL?</label>
     <div v-for="cause in causes">
 
-      <br>
+      <!-- <br>{{cause.user}} -->
       <br>
       <br>
       <b>Cause #{{cause.id}} </b> 
+      <!-- <br>
+      <b><a v-bind:href="`/causes/${cause.id}`">{{cause.user}}</a></b>
+      <br> -->
       <br>
-      <b><a v-bind:href="`/causes/${cause.id}`">{{cause.user_name}}</a></b>
-
-      <br>
-      <br>
-      <h2>{{cause.name}} </h2>
-      <br>
-      <br>
-      <b>Description</b> {{cause.description}}
+      <h1>{{cause.name}} </h1>
+  
+      <b>Goal</b> ${{cause.goal}}.00
       <br>
       <br>
-      <b>Goal</b> {{cause.goal}}
+       Goal Started by <b>{{cause.user.user_name}} </b>
       <br>
-      <b>Progress</b> {{cause.progress}} / {{cause.goal}}
+      <br>
+      <b>Description:</b> {{cause.description}}
+      <br>
+      <br>
+      
+      <br>
+      <b>Progress</b> ${{cause.progress}}.00 / ${{cause.goal}}.00
       <br>
       <img v-bind:src="cause.image_url" width="400px">
       <p>∞</p>
@@ -37,11 +44,15 @@
 
 <script>
 import axios from "axios";
+
 export default {
   data: function () {
     return {
-      message: "Causes",
+      message: "Causes + Naniels",
       causes: [],
+      myStyle: {
+        backgroundColor: "#d5eda6",
+      },
     };
   },
   created: function () {

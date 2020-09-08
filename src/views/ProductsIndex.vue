@@ -1,5 +1,5 @@
 <template>
-  <div class="products-index">
+  <div class="products-index text-center" :style ="myStyle" id="wrapper">
     <div id="main">
 						<div class="inner">
 							<header>
@@ -112,6 +112,9 @@ export default {
     return {
       message: "Products For Sale",
       products: [],
+      myStyle: {
+        backgroundColor: "#d5eda1",
+      },
     };
   },
   created: function () {

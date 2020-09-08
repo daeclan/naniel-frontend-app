@@ -1,10 +1,10 @@
 <template>
-  <div class="products-create">
+  <div class="products-create text-center" :style ="myStyle" id="wrapper">
     <img v-if="status" v-bind:src="`https://http.cat/${status}`">
     <h1>{{ message }}</h1>
 
-      <div class="form-group">
-        <label>Name:</label>
+      <div class="form-group text-center">
+        <b>Name:  </b>  
         <input v-model="name" type:text></input>
         <br>
          <small v-if="name.length <= 50">You have {{ 50 - name.length }} characters remaining</small>
@@ -12,22 +12,19 @@
       
       </div>
     
-      Description:  <input type="text" v-model="description" class="red-sometimes"> </input>
-      <br>
-       <small v-if="description.length > 0">{{280 - description.length}}</small>
-       <small v-if="description.length > 280">Your Body Is Too Big</small>
-       <small v-if="description.length > 280">Your Body Is Too Big</small>
-      <br>
-      Image URL:<input v-model="image_url" type:text>  </input>
+      <b>Description: </b>  <input v-model="description" type:text></input> 
       <br>
       <br>
-      Price:<input v-model="price" type:text>  </input>
+      <b>Image URL: </b><input v-model="image_url" type:text>  </input>
       <br>
       <br>
-      Quantity:<input v-model="qty" type:text>  </input>
+      <b>Price: $</b><input v-model="price" type:text>  </input>
       <br>
       <br>
-      Cause ID:<input v-model="cause_id" type:text>  </input>
+      <b>Quantity:</b> <input v-model="qty" type:text>  </input>
+      <br>
+      <br>
+      <b>Cause ID:</b> <input v-model="cause_id" type:text>  </input>
       <br>
       <br>
       <button v-on:click="createProduct()">Create</button>
@@ -62,6 +59,9 @@ export default {
       user_id: "",
       errors: [],
       status: "",
+      myStyle: {
+        backgroundColor: "#d5eda6",
+      },
     };
   },
   created: function () {},

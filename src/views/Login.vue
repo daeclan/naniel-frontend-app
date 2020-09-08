@@ -1,5 +1,5 @@
 <template>
-  <div class="login text-center">
+  <div class="login text-center" :style ="myStyle" id="wrapper">
     <form v-on:submit.prevent="submit()">
       <h1>Login</h1>
       <ul>
@@ -7,11 +7,11 @@
       </ul>
       <div class="form-group">
         <label>User Name:</label>
-        <input type="text" class="form-control" v-model="user_name">
+        <input type="text" class="form-control text-center" v-model="user_name">
       </div>
       <div class="form-group">
         <label>Password:</label>
-        <input type="password" class="form-control" v-model="password">
+        <input type="password" class="form-control text-center" v-model="password">
       </div>
       <input type="submit" class="btn btn-primary" value="Submit">
     </form>
@@ -27,6 +27,9 @@ export default {
       user_name: "",
       password: "",
       errors: [],
+      myStyle: {
+        backgroundColor: "#d5eda6",
+      },
     };
   },
   methods: {

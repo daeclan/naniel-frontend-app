@@ -1,5 +1,5 @@
 <template>
-  <div class="product-show text-center">
+  <div class="product-show text-center" :style ="myStyle" id="wrapper">
     
     <h1>{{ message }}</h1>
       <br>
@@ -53,6 +53,9 @@ export default {
       message: "Buy This Product & Support A Friend",
       // user_id: current_user.id,
       product: [],
+      myStyle: {
+        backgroundColor: "#d5eda1",
+      },
     };
   },
   created: function () {

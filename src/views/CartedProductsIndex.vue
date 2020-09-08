@@ -1,5 +1,5 @@
 <template>
-  <div class="carted-products-index text-center">
+  <div class="carted-products-index text-center":style ="myStyle" id="wrapper">
     <h1>{{ message }}</h1>
     <!-- {{carted_products}} -->
     <div v-for="carted_product in carted_products">
@@ -42,6 +42,9 @@ export default {
       carted_products: [],
       id: "",
       index: 0,
+      myStyle: {
+        backgroundColor: "#d5eda6",
+      },
     };
   },
   created: function () {
@@ -64,17 +67,10 @@ export default {
       });
     },
     removeItem: function () {
-      console.log("Bye!");
-      axios
-        .delete("/api/carted_products/" + carted_product.id)
-        .then((response) => {
-          var index = this.carted_products.indexOf(carted_product);
-          this.carted_products.splice(index, 1);
-
-          console.log(index);
-          console.log(response.data);
-          // this.$router.push(`/api/orders/${this.$route.order.id}`);
-        });
+      // console.log("Bye!");
+      axios.get("/api/users").then((response) => {
+        this.$router.push("/about.html");
+      });
     },
   },
 };

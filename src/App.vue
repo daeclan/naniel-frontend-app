@@ -1,13 +1,13 @@
 <template>
-  <div id="app">
+  <div id="app" >
     
-     <h1 class="site-heading text-center text-white d-none d-lg-block">
-    <span class="site-heading-upper text-primary mb-3">Naniel App</span>
-    <span class="site-heading-lower">art</span>
+     <h1 class="site-heading text-center text-white d-none d-lg-block" :style ="myStyle" id="wrapper">
+    <span class="site-heading-upper text-primary mb-3" :style ="myStyle" id="wrapper">Naniel App</span>
+    <span class="site-heading-lower">BETA</span>
   </h1>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-dark py-lg-4 text-center" id="mainNav">
     <div class="container">
       <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/home">Naniel App</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,32 +24,44 @@
             <a class="nav-link text-uppercase text-expanded" href="/about">About</a>
           </li>
           <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="/products">Products For Sale</a>
+          </li>
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="/causes"> Causes / Naniels</a>
+          </li>
+          <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="/users">Users</a>
           </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/products">Products</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/carted_products">Your Cart</a>
-          </li>
+          <span v-if="!isLoggedIn()">
           <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="/login">Login</a>
           </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/logout">Logout</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/signup">Signup</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/products/new">Create A Product</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/causes">View Causes</a>
-          </li>
+          </span>
+          <span v-if="isLoggedIn()">
           <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="/causes/new">Create A Cause</a>
           </li>
+          </span>
+          <span v-if="isLoggedIn()">
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="/products/new">Create A Product</a>
+          </li>
+          </span>
+          <span v-if="!isLoggedIn()">
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="/signup">Signup</a>
+          </li>
+          </span>
+          <span v-if="isLoggedIn()">
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="/logout">Logout</a>
+          </li>
+          </span>
+          <span v-if="isLoggedIn()">
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="/carted_products">Your Cart</a>
+          </li>
+          </span>
         </ul>
       </div>
     </div>
@@ -92,18 +104,13 @@
   <router-view/>
   <footer class="footer text-faded text-center py-5">
     <div class="container">
-      <p class="m-0 small">Copyright &copy; Your Website 2020</p>
+      <p class="m-0 small">Copyright &copy; Naniel App Enterprises 2020</p>
+      <a href="https://lyme.org/" target="_blank" class="footer text-faded " aria-label="Instagram">L Y M E . O R G</a>
     </div>
   </footer>
 
   <!-- Bootstrap core JavaScript -->
 
-    <header id="header">
-    </header>
-
-    <footer id="footer" class="midnight-blue">
-     
-    </footer>
   
     <!-- <body>
       With You Soon
@@ -240,6 +247,13 @@
 
 <script>
 export default {
+  data: function () {
+    return {
+      myStyle: {
+        backgroundColor: "#d5eda6",
+      },
+    };
+  },
   methods: {
     isLoggedIn: function () {
       if (localStorage.getItem("jwt")) {
@@ -248,7 +262,6 @@ export default {
         return false;
       }
     },
-
     getUserId: function () {
       return localStorage.getItem("user_id");
     },

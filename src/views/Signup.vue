@@ -1,5 +1,5 @@
 <template>
-  <div class="signup text-center">
+  <div class="signup text-center" :style ="myStyle" id="wrapper">
     <form v-on:submit.prevent="submit()">
       <h1>Sign Up</h1>
       <ul>
@@ -7,31 +7,31 @@
       </ul>
       <div class="form-group">
         <label>User Name:</label> 
-        <input type="text" class="form-control" v-model="user_name">
+        <input type="text" class="form-control text-center" v-model="user_name">
       </div>
       <div class="form-group">
         <label>Email:</label>
-        <input type="email" class="form-control" v-model="email">
+        <input type="email" class="form-control text-center" v-model="email">
       </div>
       <div class="form-group">
         <label>About Me:</label>
-        <input type="text" class="form-control" v-model="about_me">
+        <input type="text" class="form-control text-center" v-model="about_me">
       </div>
-      <div class="form-group">
+      <div class="form-group text-center">
         <label>Profile Picture:</label>
-        <input type="text" class="form-control" v-model="image_url">
+        <input type="text" class="form-control text-center" v-model="image_url">
       </div>
       <div class="form-group">
         <label>Primary Cause:</label>
-        <input type="text" class="form-control" v-model="primary_cause">
+        <input type="text" class="form-control text-center" v-model="primary_cause">
       </div>
-      <div class="form-group">
+      <div class="form-group text-center">
         <label>Password:</label>
         <input type="password" class="form-control" v-model="password">
       </div>
-      <div class="form-group">
+      <div class="form-group text-center">
         <label>Password confirmation:</label>
-        <input type="password" class="form-control" v-model="passwordConfirmation">
+        <input type="password" class="form-control text-center" v-model="passwordConfirmation">
       </div>
       <input type="submit" class="btn btn-primary" value="Submit">
     </form>
@@ -48,8 +48,13 @@ export default {
       email: "",
       password: "",
       about_me: "",
+      primary_cause: "",
+      image_url: "",
       passwordConfirmation: "",
       errors: [],
+      myStyle: {
+        backgroundColor: "#d5eda6",
+      },
     };
   },
   methods: {

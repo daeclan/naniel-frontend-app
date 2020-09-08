@@ -1,5 +1,5 @@
 <template>
-  <div class="users-index text-center">
+  <div class="users-index text-center" :style ="myStyle" id="wrapper">
     <br>
     <br>
     <br>
@@ -7,6 +7,8 @@
     <div v-for="user in users">
 
       <br>
+
+      {{user}}
       <br>
       <br>
       <b>User #{{user.id}} </b> 
@@ -18,7 +20,7 @@
       <b>Profile</b> {{user.about_me}}
       <br>
       <br>
-      <b>Cause Name:</b> {{user.primary_cause}}
+      <b>Primary Cause:</b> {{user.primary_cause}}
       <br>
       <br>
       <img v-bind:src="user.image_url" width="400px">
@@ -39,8 +41,12 @@ import axios from "axios";
 export default {
   data: function () {
     return {
+      currentUser: "value",
       message: "Friends of Naniel",
       users: [],
+      myStyle: {
+        backgroundColor: "#d5eda6",
+      },
     };
   },
   created: function () {
@@ -52,6 +58,12 @@ export default {
       axios.get("/api/users").then((response) => {
         console.log(response);
         this.users = response.data;
+      });
+    },
+    orderedUsers(users) {
+      return users.filter((user) => {
+        if (user[this.currentUser]) return user;
+        console.log;
       });
     },
   },

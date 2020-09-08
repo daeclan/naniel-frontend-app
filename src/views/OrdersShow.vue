@@ -1,5 +1,5 @@
 <template>
-  <div class="order-show text-center">
+  <div class="order-show text-center" :style="myStyle" id="wrapper">
     <h1>{{ message }}</h1>
 <!--     
     <h1>{{ carted_products.products[0] }}</h1>
@@ -45,6 +45,9 @@ export default {
       order: [],
       carted_products: [],
       counter: 0,
+      myStyle: {
+        backgroundColor: "#d5eda6",
+      },
     };
   },
   created: function () {

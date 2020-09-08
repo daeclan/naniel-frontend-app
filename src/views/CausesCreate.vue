@@ -1,5 +1,5 @@
 <template>
-  <div class="causes-create text-center">
+  <div class="causes-create text-center" :style ="myStyle" id="wrapper">
     <br>
     <br>
     <br>
@@ -58,6 +58,9 @@ export default {
       status: true,
       user_id: "",
       errors: [],
+      myStyle: {
+        backgroundColor: "#d5eda6",
+      },
     };
   },
   methods: {

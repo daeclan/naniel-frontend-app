@@ -44,6 +44,9 @@ export default {
       message: "User Profile:",
       user: [],
       change: "",
+      myStyle: {
+        backgroundColor: "#d5eda6",
+      },
       selectedFile: null,
     };
   },

@@ -1,5 +1,5 @@
 <template>
-  <div class="home text-center">
+  <div class="home text-center" :style ="myStyle" id="wrapper">
     <br>
     <br>
     <br>
@@ -48,6 +48,9 @@ export default {
   data: function () {
     return {
       message: "Welcome Home, friend.",
+      myStyle: {
+        backgroundColor: "#d5eda1",
+      },
     };
   },
   created: function () {},
