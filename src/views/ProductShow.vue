@@ -7,7 +7,7 @@
       <br>
       <h2>{{product.name}}</h2>
       <br>
-      Cause You Are Supporting: {{product.cause.name}}
+      Cause You Are Supporting: <b>{{product.cause.name}}</b>
       <br>
       <br>
       <i>Description:</i> 

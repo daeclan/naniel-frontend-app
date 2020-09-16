@@ -1,5 +1,5 @@
 <template>
-  <div class="products-create text-center" :style ="myStyle" id="wrapper">
+  <div class="products-create text-center filters" :style ="myStyle" id="wrapper">
     <img v-if="status" v-bind:src="`https://http.cat/${status}`">
     <h1>{{ message }}</h1>
 
@@ -25,6 +25,10 @@
       <br>
       <br>
       <b>Cause ID:</b> <input v-model="cause_id" type:text>  </input>
+        <div class="filter">
+      <label for="component-dropdown text-center">Component-based dropdown: </label>
+      <dropdown id="component-dropdown text-center" :options="causeOptions" v-model="selectedCause"></dropdown>
+    </div>
       <br>
       <br>
       <button v-on:click="createProduct()">Create</button>
@@ -45,7 +49,12 @@
 
 <script>
 import axios from "axios";
+import Dropdown from "@/components/DropDown";
+
 export default {
+  components: {
+    dropdown: Dropdown,
+  },
   data: function () {
     return {
       message: "Create A Product!",
@@ -62,12 +71,23 @@ export default {
       myStyle: {
         backgroundColor: "#d5eda6",
       },
+      selectedCause: "",
+      causeOptions: {
+        Naniel: "Naniel",
+        "Black Lives Matter": "Black Lives Matter",
+        "Hyperbaric Oxygen Chamber": "Hyperbaric Oxygen Chamber",
+        "The Okra Project": "The Okra Project",
+        "Lyme Disease": "Lyme Disease ",
+        "No Us Without You": "No Us Without You",
+        Cancer: "Cancer",
+      },
     };
   },
   created: function () {},
   methods: {
     createProduct: function () {
-      console.log("Check One");
+      console.log("Hello");
+      console.log(this.selectedCause);
       var params = {
         name: this.name,
         description: this.description,
