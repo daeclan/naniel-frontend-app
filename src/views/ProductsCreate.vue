@@ -4,7 +4,7 @@
     <h1>{{ message }}</h1>
 
       <div class="form-group text-center">
-        <b>Name:  </b>  
+        <h2 class="display-12">Name:</h2>
         <input v-model="name" type:text></input>
         <br>
          <small v-if="name.length <= 50">You have {{ 50 - name.length }} characters remaining</small>
@@ -12,23 +12,30 @@
       
       </div>
     
-      <b>Description: </b>  <input v-model="description" type:text></input> 
+      <h2 class="display-12">Description:</h2>  <input v-model="description" type:text></input> 
       <br>
       <br>
-      <b>Image URL: </b><input v-model="image_url" type:text>  </input>
+      <h2 class="display-12">Image URL:</h2><input v-model="image_url" type:text>  </input>
       <br>
       <br>
-      <b>Price: $</b><input v-model="price" type:text>  </input>
+      <h2 class="display-12">Price:</h2> <b>$ </b><input v-model="price" type:text>  </input>
       <br>
       <br>
-      <b>Quantity:</b> <input v-model="qty" type:text>  </input>
+      <h2 class="display-12">Quantity:</h2><input v-model="qty" type:text>  </input>
       <br>
       <br>
-      <b>Cause ID:</b> <input v-model="cause_id" type:text>  </input>
-        <div class="filter">
-      <label for="component-dropdown text-center">Component-based dropdown: </label>
-      <dropdown id="component-dropdown text-center" :options="causeOptions" v-model="selectedCause"></dropdown>
-    </div>
+      <!-- <h2 class="display-12">Cause :</h2>
+      <input v-model="cause_id" type:text>  </input> -->
+      <section>
+      <div class="container">
+        <div class="text-black justify-content-center">
+          <h2 class="display-12">Cause :</h2>
+              <select v-model='cause'>
+                <option v-for='cause in causes' :value='cause.id'>{{ cause.name }}</option>
+              </select>
+        </div>
+      </div>
+    </section>
       <br>
       <br>
       <button v-on:click="createProduct()">Create</button>
@@ -64,14 +71,14 @@ export default {
       qty: "",
       description: "",
       image_url: "",
-      cause_id: "",
-      user_id: "",
+      cause: "",
+      user_id: "28",
       errors: [],
       status: "",
       myStyle: {
         backgroundColor: "#d5eda6",
       },
-      selectedCause: "",
+      causes: [],
       causeOptions: {
         Naniel: "Naniel",
         "Black Lives Matter": "Black Lives Matter",
@@ -83,18 +90,29 @@ export default {
       },
     };
   },
-  created: function () {},
+  created: function () {
+    this.getCauseName();
+  },
   methods: {
+    getCauseName: function () {
+      console.log("adding a cause...");
+      axios.get("api/causes").then((response) => {
+        console.log(response.data);
+        this.causes = response.data;
+        console.log(this.causes);
+      });
+    },
     createProduct: function () {
       console.log("Hello");
       console.log(this.selectedCause);
       var params = {
+        // cause: this.cause.id,
         name: this.name,
         description: this.description,
         image_url: this.image_url,
         price: this.price,
         qty: this.qty,
-        cause_id: this.cause_id,
+        cause_id: this.cause,
         user_id: this.user_id,
       };
       console.log("Check Two");
