@@ -22,10 +22,10 @@
       <img v-bind:src="product.image_url" width="400px">
       <br>
       <br>
-      <button v-on:click="buyProduct()"> Add Product To Cart </button>
+      <button :disabled="isSoldOut" v-on:click="buyProduct()"> Add Product To Cart </button>
       <br>
       <br>
-      Quantity Available: {{product.qty}}
+      Quantity Available: {{isSoldOut ? "None" : product.qty}}
       <!-- <p>product.user_id = {{product.user_id}}
       <p>current user's id = {{ $parent.getUserId()}} -->
       <br>
@@ -60,6 +60,11 @@ export default {
   },
   created: function () {
     this.showProducts();
+  },
+  computed: {
+    isSoldOut: function () {
+      return this.product.qty === 0;
+    },
   },
   methods: {
     showProducts: function () {

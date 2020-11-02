@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     indexCartedProducts: function () {
-      console.log("MY SON");
+      console.log("Index Run");
       axios.get("/api/carted_products").then((response) => {
         console.log(response.data);
         this.carted_products = response.data;
@@ -66,11 +66,16 @@ export default {
         this.$router.push(`/orders/${this.response}`);
       });
     },
-    removeItem: function () {
-      // console.log("Bye!");
-      axios.get("/api/users").then((response) => {
-        this.$router.push("/about.html");
-      });
+    removeItem: function (carted_product) {
+      console.log("rain");
+      console.log(this.carted_product);
+      console.log("brain");
+      axios
+        .delete(`/api/carted_products/${carted_product.id}`)
+        .then((response) => {
+          console.log(response.data);
+          this.$router.push("/carted_products");
+        });
     },
   },
 };

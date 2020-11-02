@@ -32,18 +32,6 @@
               <span class="section-heading-lower">Help a Friend</span>
             </h2>
             <p class="mb-0">If CoronaVirus has shown us anything, it is that we have taken a lot of our creature comforts for granted. Many of us have collected some cool material over the years, the Naniel App allows you to trade one of those cool things in order to provide a creature comfort for someone in need.</p> 
-            <br>
-            <p class="mb-0">Humor has been a huge part of my relationship with Naniel,so I installed a Dad Joke button below for when times are tough & you need something to smile about.</p> 
-            <br>
-      <button type = "button" id = "get-joke" class = "intro-button mx-auto btn btn-primary " @click = "fetchAPIData">Dad Joke API !</button>
-      <br>
-        <div v-if = "responseAvailable == true">
-          <br>
-          <br>
-          <h1>{{result}}</h1>
-          <br>
-          <h2>{{rasult}}</h2>
-        </div>
             </p>
             <hr>
           </div>

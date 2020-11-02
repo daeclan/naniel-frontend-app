@@ -1,22 +1,17 @@
 <template>
   <div id="app" >
     
-     <h1 class="site-heading text-center text-white d-none d-lg-block" :style ="myStyle" id="wrapper">
-    <span class="site-heading-upper text-primary mb-3" :style ="myStyle" id="wrapper">Naniel App</span>
-    <span class="site-heading-lower">BETA</span>
-  </h1>
-
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark py-lg-4 text-center" id="mainNav">
     <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/home">Naniel App</a>
+      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/">Naniel App</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="home">Home
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="/">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -108,141 +103,35 @@
       <a href="https://lyme.org/" target="_blank" class="footer text-faded " aria-label="Instagram">L Y M E . O R G</a>
     </div>
   </footer>
-
-  <!-- Bootstrap core JavaScript -->
-
-  
-    <!-- <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body>
-    <body>
-      With You Soon
-    </body> -->
-        <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/users">Users</router-link> |
-      <router-link to="/causes">Causes</router-link> |
-      <router-link to="/products">Products</router-link> |
-      <span v-if="isLoggedIn()"><router-link to="/products/new">Sell A Product</router-link> | </span>
-      <span v-if="isLoggedIn()"><router-link to="/causes/new">Create A Cause</router-link> | </span>
-      <span v-if="isLoggedIn()"><router-link to="/carted_products/">Your Cart</router-link> | </span>
-      <router-link to="/about">About</router-link> |
-      <span v-if="!isLoggedIn()"><router-link to="/signup">Signup</router-link>  </span>
-      <span v-if="!isLoggedIn()"> | <router-link to="/login">Login</router-link> </span>
-      <span v-if="isLoggedIn()"> <router-link to="/logout"> Logout</router-link></span>
-    </div> -->
   </div>
 </template>
 
 <style>
-/* #app {
-  font-family: Garamond, Helvetica, Arial, sans-serif;
+#app {
+  /* font-family: Garamond, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #2c3e50; */
   background: url(https://s3.amazonaws.com/noupe/2009/10/squidfingers.jpg);
 }
 
-#nav {
+/* #nav {
   padding: 30px;
 }
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
-}
+  color: #2c3e50; */
+/* } */
 
 #nav a.router-link-exact-active {
   color: #b7df27;
-} */
+}
+
+a:active {
+  color: rgb(0, 0, 0);
+}
 </style>
 
 <script>
