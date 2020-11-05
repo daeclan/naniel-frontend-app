@@ -63,7 +63,7 @@ export default {
   },
   computed: {
     isSoldOut: function () {
-      return this.product.qty === 0;
+      return this.product.qty <= 0;
     },
   },
   methods: {
