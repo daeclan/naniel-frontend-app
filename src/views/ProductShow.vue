@@ -92,7 +92,8 @@ export default {
         .post("api/carted_products/", params)
         .then((response) => {
           console.log(response.data);
-          this.carted_product.push(response.data);
+          this.carted_product = response.data;
+          // this.carted_product.push(response.data);
           this.$router.push("/carted_products");
         })
         .catch((error) => {
