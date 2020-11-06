@@ -1,6 +1,7 @@
 <template>
   <div class="products-create text-center filters" :style ="myStyle" id="wrapper">
     <img v-if="status" v-bind:src="`https://http.cat/${status}`">
+    <p v-for="error in errors" :key="error">{{error}}</p>
     <h1>{{ message }}</h1>
 
       <div class="form-group text-center">
@@ -119,17 +120,13 @@ export default {
       axios
         .post("/api/products", params)
         .then((response) => {
-          console.log(response).data;
-          this.products.push(response.data);
+          console.log(response.data);
+          // this.products.push(response.data);
           this.$router.push("/products");
         })
         .catch((error) => {
-          console.log((error.response || {}).data);
-          return false;
-        })
-        .catch((error) => {
-          this.errors = error.response.data.errors;
           console.log(error.response);
+          this.errors = error.response.data.errors;
           this.status = error.response.status;
         });
     },
