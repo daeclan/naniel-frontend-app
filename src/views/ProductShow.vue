@@ -1,11 +1,11 @@
 <template>
   <div class="product-show text-center" :style ="myStyle" id="wrapper">
     
-    <h1>{{ message }}</h1>
+    <h2>{{ message }}</h2>
       <br>
       <!-- {{product}} -->
       <br>
-      <h2>{{product.name}}</h2>
+      <h1>{{product.name}}</h1>
       <br>
       Cause You Are Supporting: <b>{{product.cause.name}}</b>
       <br>
@@ -25,7 +25,7 @@
       <button :disabled="isSoldOut" v-on:click="buyProduct()"> Add Product To Cart </button>
       <br>
       <br>
-      Quantity Available: {{isSoldOut ? "None" : product.qty}}
+      <!-- Quantity Available: {{isSoldOut ? "None" : product.qty}} -->
       <!-- <p>product.user_id = {{product.user_id}}
       <p>current user's id = {{ $parent.getUserId()}} -->
       <br>
@@ -63,6 +63,7 @@ export default {
   },
   computed: {
     isSoldOut: function () {
+      console.log(this.product.qty);
       return this.product.qty <= 0;
     },
   },

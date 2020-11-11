@@ -27,7 +27,7 @@
       </div>
       <div class="form-group text-center">
         <label>Password:</label>
-        <input type="password" class="form-control" v-model="password">
+        <input type="password" class="form-control text-center" v-model="password">
       </div>
       <div class="form-group text-center">
         <label>Password confirmation:</label>

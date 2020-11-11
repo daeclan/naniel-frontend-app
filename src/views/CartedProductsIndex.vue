@@ -1,10 +1,10 @@
 <template>
   <div class="carted-products-index text-center":style ="myStyle" id="wrapper">
     <h1>{{ message }}</h1>
-    <!-- {{carted_products}} -->
+    <div v if=carted_products>{{status}}</div>
+    <br>
     <div v-for="carted_product in carted_products">
       <br>
-      <!-- <h2>PASS THIS PEA: "{{carted_product.id}}"</h2> -->
       <br>
       <b>  {{carted_product.product.name}} </b>
       <br>
@@ -38,7 +38,8 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "items in your cart",
+      message: "your cart",
+      status: "Your Cart Is Empty",
       carted_products: [],
       id: "",
       index: 0,
@@ -74,7 +75,11 @@ export default {
         .delete(`/api/carted_products/${carted_product.id}`)
         .then((response) => {
           console.log(response.data);
-          this.$router.push("/carted_products");
+          this.$router.push("/carted_products").catch((error) => {
+            if (error.name != "NavigationDuplicated") {
+              throw error;
+            }
+          });
         });
     },
   },
